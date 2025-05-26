@@ -94,7 +94,7 @@ export const App: React.FC = () => {
 
   const isSortAlbh = sortParam === SortType.Alphabetical;
   const isSortLength = sortParam === SortType.Length;
-  const isResetButtonHidden = isSortAlbh || isSortLength || isReversed;
+  const isResetButtonVisible = sortParam !== SortType.Default || isReversed;
 
   const handleResetButton = () => {
     setSortParam(SortType.Default);
@@ -130,7 +130,7 @@ export const App: React.FC = () => {
           Reverse
         </button>
 
-        {isResetButtonHidden && (
+        {isResetButtonVisible && (
           <button
             type="button"
             className="button is-danger is-light"
